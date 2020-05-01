@@ -148,7 +148,7 @@ function rbf_requirePlugins()
 
     tgmpa($plugins, $config);
 }
-add_action('tgmpa_register', 'rbfTheme_requirePlugins');
+add_action('tgmpa_register', 'rbf_requirePlugins');
 
 /**
  * rbf_excerptEnd($more)
