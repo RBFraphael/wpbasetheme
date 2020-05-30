@@ -6,8 +6,8 @@ A basic structure for theme development
 | CSS               | Version | Reference                                        |
 |-------------------|---------|--------------------------------------------------|
 | Animate CSS       | 3.7.2   | https://daneden.github.io/animate.css/           |
-| Animate On Scroll | 2.1.1   | https://michalsnik.github.io/aos/                |
-| Bootstrap         | 4.4.1   | https://getbootstrap.com/                        |
+| Animate On Scroll | 2.3.4   | https://michalsnik.github.io/aos/                |
+| Bootstrap         | 4.5.0   | https://getbootstrap.com/                        |
 | DataTables (Full) | 1.10.20 | https://datatables.net/                          |
 | FontAwesome       | 5.13.0  | https://fontawesome.com/                         |
 | Hamburgers        | 1.1.3   | https://jonsuh.com/hamburgers/                   |
@@ -29,15 +29,15 @@ A basic structure for theme development
 
 | JavaScript        | Version    | Reference                               |
 | ----------------- | ---------- | --------------------------------------- |
-| Animate On Scroll | 2.1.1      | https://michalsnik.github.io/aos/       |
-| Bootstrap         | 4.4.1      | https://getbootstrap.com/               |
+| Animate On Scroll | 2.3.4      | https://michalsnik.github.io/aos/       |
+| Bootstrap         | 4.5.0      | https://getbootstrap.com/               |
 | DataTables (Full) | 1.10.20    | https://datatables.net/                 |
 | Feather Icons     | 4.24.1     | https://feathericons.com/               |
 | HTML2Canvas       | 1.0.0-rc.5 | https://html2canvas.hertzen.com/        |
-| jQuery            | 3.5.0      | https://jquery.com/                     |
+| jQuery            | 3.5.1      | https://jquery.com/                     |
 | jQuery Lettering  | 0.7.0      | http://letteringjs.com/                 |
 | Parallax          | 1.5.0      | https://pixelcog.github.io/parallax.js/ |
-| Popper            | 2.4.0      | https://popper.js.org/                  |
+| Popper            | 1.16.0     | https://popper.js.org/                  |
 | Slick Carousel    | 1.8.1      | http://kenwheeler.github.io/slick/      |
 | Typed             | 2.0.11     | https://mattboldt.com/demos/typed-js/   |
 
@@ -54,3 +54,4 @@ A basic structure for theme development
 - TGMPA for requesting plugins
 - Advanced Custom Fields Pro (from https://github.com/wp-premium/advanced-custom-fields-pro) pre-included with TGMPA
 - Pre-included some functions, hooks, settings and other (check functions.php)
+- Pre-included WP Bootstrap Navwalker
