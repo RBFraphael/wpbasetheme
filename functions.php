@@ -8,23 +8,22 @@ require_once dirname(__FILE__).'/includes/tgmpa/class-tgm-plugin-activation.php'
  */
 function rbf_cssStylesheets()
 {
-    $v = "1.0.0";
     $styles = [
-        'css_normalize' => '/assets/css/normalize.css',
-        'css_fontawesome' => '/assets/css/all.min.css',
-        'css_animate' => '/assets/css/animate.css',
-        'css_aos' => '/assets/css/aos',
-        'css_bootstrap' => '/assets/css/bootstrap.min.css',
-        'css_datatables' => '/assets/css/datatables.min.css',
-        'css_slick' => '/assets/css/slick.css',
-        'css_slicktheme' => '/assets/css/slick-theme.css',
-        'css_wicked' => '/assets/css/wickedcss.min.css',
-        'css_content' => '/assets/css/content.css',
-        'css_fonts' => '/assets/css/fonts.css',
-        'css_style' => '/assets/css/style.css',
+        'css_normalize' => ['/assets/css/normalize.css', '8.0.1'],
+        'css_fontawesome' => ['/assets/css/all.min.css', '5.13.0'],
+        'css_animate' => ['/assets/css/animate.css', '3.7.2'],
+        'css_aos' => ['/assets/css/aos.css', '2.3.4'],
+        'css_bootstrap' => ['/assets/css/bootstrap.min.css', '4.5.0'],
+        'css_datatables' => ['/assets/css/datatables.min.css', '1.0.0'],
+        'css_slick' => ['/assets/css/slick.css', '1.8.1'],
+        'css_slicktheme' => ['/assets/css/slick-theme.css', '1.8.1'],
+        'css_wicked' => ['/assets/css/wickedcss.min.css', '1.0.0'],
+        'css_content' => ['/assets/css/content.css', '1.0.0'],
+        'css_fonts' => ['/assets/css/fonts.css', '1.0.0'],
+        'css_style' => ['/assets/css/style.css', '1.0.0'],
     ];
-    foreach($styles as $id => $file){
-        wp_enqueue_style($id, get_template_directory_uri().$file, [], $v);
+    foreach($styles as $id => $data){
+        wp_enqueue_style($id, get_template_directory_uri().$data[0], [], $data[1]);
     }
 }
 add_action('wp_enqueue_scripts', 'rbf_cssStylesheets');
@@ -37,25 +36,24 @@ function rbf_jsScripts()
 {
     if(!is_admin()){
         wp_deregister_script('jquery');
-        wp_enqueue_script('jquery', get_template_directory_uri().'/assets/js/jquery-3.5.0.min.js', [], '3.5.0', false);
+        wp_enqueue_script('jquery', get_template_directory_uri().'/assets/js/jquery-3.5.1.min.js', [], '3.5.1', false);
     }
 
-    $v = "1.0.0";
     $scripts = [
-        'js_popper' => '/assets/js/popper.min.js',
-        'js_bootstrap' => '/assets/js/bootstrap.min.js',
-        'js_aos' => '/assets/js/aos.js',
-        'js_datatables' => '/assets/js/datatables.min.js',
-        'js_feather' => '/assets/js/feather.min.js',
-        'js_html2canvas' => '/assets/js/html2canvas.min.js',
-        'js_lettering' => '/assets/js/jquery.lettering.js',
-        'js_parallax' => '/assets/js/parallax.min.js',
-        'js_slick' => '/assets/js/slick.min.js',
-        'js_typed' => '/assets/js/typed.min.js',
-        'js_script' => '/assets/js/script.js',
+        'js_popper' => ['/assets/js/popper.min.js', '1.16.0'],
+        'js_bootstrap' => ['/assets/js/bootstrap.min.js', '4.5.0'],
+        'js_aos' => ['/assets/js/aos.js', '2.3.4'],
+        'js_datatables' => ['/assets/js/datatables.min.js', '1.0.0'],
+        'js_feather' => ['/assets/js/feather.min.js', '4.24.1'],
+        'js_html2canvas' => ['/assets/js/html2canvas.min.js', '1.0.0'],
+        'js_lettering' => ['/assets/js/jquery.lettering.js', '0.7.0'],
+        'js_parallax' => ['/assets/js/parallax.min.js', '1.5.0'],
+        'js_slick' => ['/assets/js/slick.min.js', '1.8.1'],
+        'js_typed' => ['/assets/js/typed.min.js', '2.0.11'],
+        'js_script' => ['/assets/js/script.js', '1.0.0'],
     ];
-    foreach($scripts as $id => $file){
-        wp_enqueue_script($id, get_template_directory_uri().$file, [], $v, true);
+    foreach($scripts as $id => $data){
+        wp_enqueue_script($id, get_template_directory_uri().$data[0], [], $data[1], true);
     }
 }
 add_action('wp_enqueue_scripts', 'rbf_jsScripts');
@@ -113,12 +111,6 @@ function rbf_requirePlugins()
             'slug' => 'classic-editor',
             'required' => true,
         ),
-        /* array(
-            'name' => 'Theme Plugin',
-            'slug' => 'base-plugin',
-            'source' => get_template_directory_uri().'/includes/tgmpa/plugins/base-plugin.zip',
-            'required' => true,
-        ), */
         array(
             'name' => 'Contact Form 7',
             'slug' => 'contact-form-7',
@@ -149,6 +141,16 @@ function rbf_requirePlugins()
     tgmpa($plugins, $config);
 }
 add_action('tgmpa_register', 'rbf_requirePlugins');
+
+/**
+ * rbf_registerNavWalker()
+ * Registers Bootstrap nav menu walker for Wordpress
+ */
+function rbf_registerNavWalker()
+{
+    require_once(dirname(__FILE__).'/includes/class-wp-bootstrap-navwalker.php');
+}
+add_action('after_setup_theme', 'rbf_registerNavWalker');
 
 /**
  * rbf_excerptEnd($more)
