@@ -70,9 +70,6 @@ function rbf_themeSetup()
     add_theme_support('custom-logo');
     add_theme_support('html5');
     add_theme_support('automatic-feed-links');
-
-    add_image_size("medium-big", 800);
-    add_image_size('small-icon', 32, 32);
 }
 add_action('after_setup_theme', 'rbf_themeSetup');
 
@@ -108,11 +105,6 @@ function rbf_requirePlugins()
             'required' => true,
         ),
         array(
-            'name' => 'Classic Editor',
-            'slug' => 'classic-editor',
-            'required' => true,
-        ),
-        array(
             'name' => 'Contact Form 7',
             'slug' => 'contact-form-7',
             'required' => true,
@@ -120,6 +112,11 @@ function rbf_requirePlugins()
         array(
             'name' => 'Breadcrumb NavXT',
             'slug' => 'breadcrumb-navxt',
+            'required' => false,
+        ),
+        array(
+            'name' => 'Classic Editor',
+            'slug' => 'classic-editor',
             'required' => false,
         ),
         array(
